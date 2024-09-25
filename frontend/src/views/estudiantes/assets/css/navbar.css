@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  font-family: "Abel", sans-serif;
+  background-color: #ebfadc;
+  border-bottom: 1px solid #ccc;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  font-family: "Abel", sans-serif;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.get-started {
+  padding: 10px 20px;
+  background-color: #46ad81;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "Abel", sans-serif;
+  cursor: pointer;
+}

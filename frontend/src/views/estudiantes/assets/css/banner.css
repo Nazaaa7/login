@@ -1,0 +1,40 @@
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #71a35a;
+}
+
+.banner-content {
+  max-width: 50%;
+}
+
+.banner-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: "Abel", sans-serif;
+}
+
+.banner-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: "Abel", sans-serif;
+}
+
+.learn-more {
+  padding: 10px 20px;
+  background-color: #1d8f5e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Abel", sans-serif;
+}
+
+.banner-image {
+  /* Añadir imagen o ilustración aquí */
+  width: 50%;
+  height: 500px;
+  max-width: '100%'
+}
