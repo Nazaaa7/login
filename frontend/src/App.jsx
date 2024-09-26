@@ -1,22 +1,15 @@
+// src/App.jsx
 import { useReducer } from "react";
-import { UserContext } from "./context/UserContext";
-import AppRouter from "./routes/AppRouter";
-import { userReducer } from "./context/userReducer";
+import { UserProvider } from "./context/UserContext"; // Se usa UserProvider
+import AppRouter from "./routes/AppRouter"; // Asegúrate de que la ruta sea correcta
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const obtenerToken = () =>
-    JSON.parse(localStorage.getItem("userData")) || { isLogged: false };
-
-  const [state, stateDispatch] = useReducer(userReducer, {}, obtenerToken);
-
   return (
-    <>
-      <UserContext.Provider value={{ state, stateDispatch }}>
-        <AppRouter />
-      </UserContext.Provider>
-    </>
+    <UserProvider>
+      <AppRouter />
+    </UserProvider>
   );
 }
 

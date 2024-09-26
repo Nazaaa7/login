@@ -1,0 +1,27 @@
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "Abel", sans-serif;
+  margin-top: 30px;
+}
+
+.category-card {
+  background-color: #fcf6ef;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  text-align: left;
+}
+
+.category-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.category-card p {
+  font-size: 16px;
+  color: #555;
+}

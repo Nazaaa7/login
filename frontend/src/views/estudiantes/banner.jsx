@@ -1,17 +1,16 @@
 import React from 'react';
 import './assets/css/banner.css';
+import bannerImage from '/img/banner.png'; // Cambia la ruta según tu estructura de archivos
 
 function Banner() {
   return (
     <div className="banner">
       <div className="banner-content">
-        <h2>Get Free Education</h2>
-        <p>Get free education and high-quality educational systems to help you advance in your field.</p>
-        <button className="learn-more">Learn More</button>
+        <h2>QuimiCraft</h2>
+        <p>QuimiCraft es una plataforma interactiva orientada al fácil aprendizaje de la química con diferentes métodos y opciones para ayudarte con el proceso didáctico.</p>
+        <button className="learn-more">Continuar</button>
       </div>
-      <div className="banner-image">
-      <img src={myImage} alt="Description of image" />
-      </div>
+      <img src={bannerImage} alt="Banner" className="banner-image" /> {/* Imagen añadida */}
     </div>
   );
 }

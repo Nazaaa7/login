@@ -1,12 +1,14 @@
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
-import { Navigate, Outlet } from "react-router-dom";
+// src/routes/PrivateRoutes.jsx
+import { Outlet, Navigate } from "react-router-dom";
 
 const PrivateRoutes = () => {
-  const { state } = useContext(UserContext);
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const isAuthenticated = userData?.isLogged;
 
-  // Si el usuario está autenticado, se permite acceder a las rutas privadas
-  return state.isLogged ? <Outlet /> : <Navigate to={"/"} />;
+  console.log("Acceso a rutas privadas. Autenticado:", isAuthenticated);
+
+  // Si el usuario está autenticado, permite el acceso a las rutas privadas
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default PrivateRoutes;

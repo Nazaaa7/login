@@ -1,6 +1,6 @@
 .login-container {
   height: 100vh;
-  background-image: url("/img/background.jpg");
+  background-image: url("/img/FONDO.png");
   background-size: cover;
   background-position: center;
   background-repeat: none;
@@ -28,16 +28,19 @@
   flex-direction: column;
   background-color: transparent;
   border-radius: 10px;
+  border-color: #003e06;
 }
 
 .login-form input {
   background-color: transparent;
   width: 300px;
   color: #fff;
+  border-color: #003e06;
 }
 
 .login-form label {
-  color: #fff !important;
+  color: #ffffff !important;
+ 
 }
 
 .login-form input:focus {
@@ -51,15 +54,15 @@
 }
 
 .button-login {
-  background-color: #0f2466;
-  border: 1px solid #2b3b6d;
+  background-color: #439662;
+  border: 1px solid #003e06;
   color: #ffffff;
   padding: 10px;
   border-radius: 10px;
 }
 
 .button-login:hover {
-  background-color: #011453;
+  background-color: #199147;
 }
 
 .login-label {
@@ -69,6 +72,6 @@
 }
 
 .login-label a {
-  color: #00cafd !important;
+  color: #003d17 !important;
   text-decoration: none;
 }

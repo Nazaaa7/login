@@ -1,28 +1,25 @@
+// src/context/userReducer.js
 import { userType } from "./userTypes";
 
 export const userReducer = (state, action) => {
   switch (action.type) {
     case userType.login:
-      localStorage.setItem(
-        "userData",
-        JSON.stringify({
-          isLogged: true,
-          token: action.token,
-          usuario: action.usuario,
-        })
-      );
       return {
+        ...state,
         isLogged: true,
-        token: action.token,
-        usuario: action.usuario,
+        usuario: action.payload.usuario,
+        token: action.payload.token,
+        role: action.payload.role,
       };
     case userType.logOut:
-      localStorage.removeItem("userData");
       return {
+        ...state,
         isLogged: false,
+        usuario: null,
+        token: null,
+        role: null,
       };
-
     default:
-      break;
+      return state;
   }
 };

@@ -3,28 +3,28 @@ import { connectDB } from "../db/database.js";
 
 export const validarJWT = async (token) => {
   try {
-    // Usamos el metodo verify para verificar el token.
-    // El primer parametro es el token que recibimos por el header, y el segun el secret con el que firmamos el token.
-    const { id } = jwt.verify(token, "mysecret");
+    // Verificamos el token.
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || "mysecret");
+    const { id } = decoded;
 
+    // Conexión a la base de datos.
     const connection = await connectDB();
 
-    // Buscamos el usuario por id.
+    // Consulta SQL asegurando que el id sea un valor seguro.
     const [usuario] = await connection.query(
-      "SELECT * FROM USUARIOS WHERE id=? LIMIT 1",
-      id
+      "SELECT * FROM USUARIOS WHERE id = ? LIMIT 1",
+      [id] // Usamos ? para prevenir inyecciones SQL
     );
 
-    // En caso de que no exista retornamos false.
-    if (!usuario) {
+    // Verificamos si el usuario existe.
+    if (!usuario || usuario.length === 0) {
       return false;
-    } else {
-      //Caso contrario retornamos el usuario.
-      return usuario[0];
     }
+
+    // Retornamos el usuario encontrado.
+    return usuario[0];
   } catch (error) {
-    // Si ocurre un error lo mostramos por consola y retornamos false.
-    console.log(error);
+    console.error("Error al validar el JWT:", error);
     return false;
   }
 };

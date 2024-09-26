@@ -1,3 +1,4 @@
+// src/views/register/Register.jsx
 import React, { useState, useEffect } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +14,9 @@ const Register = () => {
   const cargarTiposUsuario = async () => {
     try {
       const req = await fetch("http://localhost:3000/tipos-usuario");
+      if (!req.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
       const data = await req.json();
       setTiposUsuario(data);
     } catch (error) {
@@ -69,7 +73,7 @@ const Register = () => {
   return (
     <main className="register-container">
       <div className="register-header">
-        <h2 className="register-title">Registro</h2>
+        <h2 className="register-title">Registrarse</h2>
         <span>Complete los datos para crear un usuario</span>
       </div>
       
@@ -127,17 +131,13 @@ const Register = () => {
         </FloatingLabel>
 
         {/* Selector de tipo de usuario */}
-        <FloatingLabel
-          controlId="tipo_usuario_id"
-          label="Tipo de Usuario"
-          className="mb-3"
-        >
+        <FloatingLabel controlId="tipo_usuario_id" label="Tipo de Usuario" className="mb-3">
           <Form.Select
             aria-label="Selecciona el tipo de usuario"
             name="id_rela_tipo_usuario"
             onChange={handleChange}
           >
-            <option value="">Selecciona un tipo de usuario</option>
+           
             {tiposUsuario.map((tipo) => (
               <option key={tipo.idTipoUsuario} value={tipo.idTipoUsuario}>
                 {tipo.descripcion}

@@ -1,13 +1,12 @@
+// src/routes/AppRouter.jsx
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "../views/login/Login";
 import Register from "../views/register/Register";
-import Tareas from "../views/tareas/Tareas";
 import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
-import Estudiantes from "../views/estudiantes/estudiantes";
-import NuevaTarea from "../views/tareas/nueva-tarea/NuevaTarea";
-import EditarTarea from "../views/tareas/editar-tarea/EditarTarea";
-import EliminarTarea from "../views/tareas/eliminar-tarea/EliminarTarea";
+import Estudiantes from "../views/estudiantes/Estudiantes"; 
+import Profesores from "../views/profesores/Profesores"; 
+import Admin from "../views/admin/Admin"; 
 
 const AppRouter = () => {
   return (
@@ -22,10 +21,10 @@ const AppRouter = () => {
         {/* Rutas privadas accesibles solo si está autenticado */}
         <Route element={<PrivateRoutes />}>
           <Route path="/estudiantes" element={<Estudiantes />} />
-          <Route path="/tareas" element={<Tareas />} />
-          <Route path="/tareas/nueva-tarea" element={<NuevaTarea />} />
-          <Route path="/tareas/editar-tarea/:id" element={<EditarTarea />} />
-          <Route path="/tareas/eliminar-tarea/:id" element={<EliminarTarea />} />
+          <Route path="/profesores" element={<Profesores />} />
+          <Route path="/admin" element={<Admin />} />
+      
+      
         </Route>
       </Routes>
     </BrowserRouter>

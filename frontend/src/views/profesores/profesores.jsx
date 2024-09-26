@@ -6,9 +6,8 @@ import Categories from './categories';
 import { UserContext } from '../../context/UserContext'; // Importa el contexto
 import { userType } from '../../context/userTypes'; // Importa los tipos de acción
 
-function Estudiantes() {
+function Profesores() {
   const { stateDispatch } = useContext(UserContext); // Accede al dispatch
-
 
   const logOut = () => {
     // Limpia el localStorage antes de la actualización de estado
@@ -28,9 +27,9 @@ function Estudiantes() {
       <Navbar />
       <Banner />
       <Categories />
-      
+      <button onClick={logOut}>Cerrar Sesión (prof)</button>
     </div>
   );
 }
 
-export default Estudiantes;
+export default Profesores;

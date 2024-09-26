@@ -1,6 +1,6 @@
 .register-container {
   height: 100vh;
-  background-image: url("/img/background.jpg");
+  background-image: url("/img/FONDO.png");
   background-size: cover;
   background-position: center;
   background-repeat: none;
@@ -34,6 +34,7 @@
   background-color: transparent;
   width: 300px;
   color: #fff;
+  border-color: #004835;
 }
 
 .register-form label {
@@ -51,13 +52,17 @@
 }
 
 .button-register {
-  background-color: #0f2466;
-  border: 1px solid #2b3b6d;
+  background-color: #439662;
+  border: 1px solid #004835;
   color: #ffffff;
   padding: 10px;
   border-radius: 10px;
 }
 
 .button-register:hover {
-  background-color: #011453;
+  background-color: #28643a;
+}
+
+.register-form select{
+  background-color: transparent;
 }

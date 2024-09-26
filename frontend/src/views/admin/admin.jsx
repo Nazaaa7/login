@@ -6,9 +6,8 @@ import Categories from './categories';
 import { UserContext } from '../../context/UserContext'; // Importa el contexto
 import { userType } from '../../context/userTypes'; // Importa los tipos de acción
 
-function Estudiantes() {
+function Admin() {
   const { stateDispatch } = useContext(UserContext); // Accede al dispatch
-
 
   const logOut = () => {
     // Limpia el localStorage antes de la actualización de estado
@@ -22,15 +21,16 @@ function Estudiantes() {
     // Si es necesario, redirige al usuario a la pantalla de login
     window.location.href = "/"; // O usa navigate("/")
   };
+ 
 
   return (
     <div className="App">
       <Navbar />
       <Banner />
       <Categories />
-      
+      <button onClick={logOut}>Cerrar Sesión (ad)</button>
     </div>
   );
 }
 
-export default Estudiantes;
+export default Admin;

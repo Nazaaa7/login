@@ -2,17 +2,21 @@ import jwt from "jsonwebtoken";
 
 export const generarJWT = (id) => {
   return new Promise((resolve, reject) => {
-    // Para generar un token se utiliza el metodo sign que significa fimar.
-    // Recibe como primer parametro la informacion y como segundo el 'secret' que seria la firma del token.
+    // Encapsulamos el id en un objeto.
+    const payload = { id };
+
     jwt.sign(
-      id,
-      "mysecret",
+      payload, 
+      process.env.JWT_SECRET || "mysecret", // Usamos una variable de entorno o un valor por defecto
       {
-        // Se establece un tiempo de duración del token.
-        expiresIn: 60 * 60 * 24,
+        expiresIn: '24h', // Se puede escribir como '24h' para mayor claridad
       },
       (err, token) => {
-        err ? reject(err) : resolve(token);
+        if (err) {
+          reject(err);
+        } else {
+          resolve(token);
+        }
       }
     );
   });
